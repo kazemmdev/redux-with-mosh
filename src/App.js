@@ -1,5 +1,7 @@
-import store from "./store";
-import { buggAdded, bugRemoved, bugResolved } from "./store/actions";
+import configureStore from "./store/configureStore";
+import { buggAdded, bugRemoved, bugResolved } from "./store/bugs";
+
+const store = configureStore();
 
 store.subscribe(() => {
   console.log("Store Changed!", store.getState());
