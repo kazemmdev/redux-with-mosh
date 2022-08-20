@@ -7,9 +7,9 @@ store.subscribe(() => {
   console.log("Store Changed!", store.getState());
 });
 
-store.dispatch(buggAdded("hello"));
-store.dispatch(bugResolved(1));
-store.dispatch(bugRemoved(1));
+store.dispatch(buggAdded({description: "hello"}));
+store.dispatch(bugResolved({id: 1}));
+store.dispatch(bugRemoved({id: 1}));
 
 function App() {
   return <div>code with mosh</div>;
