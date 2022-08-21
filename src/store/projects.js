@@ -19,3 +19,8 @@ const slice = createSlice({
 
 export const { addProject, removeProject } = slice.actions;
 export default slice.reducer;
+
+// selector
+export const getProject = (state, id) => {
+  return state.entities.projects.find((project) => project.id === id);
+};
