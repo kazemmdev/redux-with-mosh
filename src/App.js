@@ -1,6 +1,7 @@
 import configureStore from "./store";
-import { buggAdded, getUnresolvedBugs, bugResolved } from "./store/bugs";
-import { addProject, getProject } from "./store/projects";
+import { bugAdded, getUnresolvedBugs, getBugsByUser, bugResolved, getUserBug, bugAssignToUser } from "./store/bugs";
+import { projectAdded } from "./store/projects";
+import { userAdded } from "./store/users";
 
 const store = configureStore();
 
@@ -8,21 +9,18 @@ store.subscribe(() => {
   console.log("Store Changed!", store.getState());
 });
 
-store.dispatch(buggAdded({ description: "bug 1" }));
-store.dispatch(buggAdded({ description: "bug 2" }));
-store.dispatch(buggAdded({ description: "bug 3" }));
+store.dispatch(bugAdded({ description: "bug 1" }));
+store.dispatch(bugAdded({ description: "bug 2" }));
+store.dispatch(bugAdded({ description: "bug 3" }));
 store.dispatch(bugResolved({ id: 1 }));
+store.dispatch(projectAdded({ name: "project 1" }));
 
-store.dispatch(addProject({ name: "Project 1" }));
+store.dispatch(userAdded({ name: "user 1" }));
+store.dispatch(userAdded({ name: "user 2" }));
+store.dispatch(bugAssignToUser({ userId: 1, bugId: 1 }));
+store.dispatch(bugAssignToUser({ userId: 1, bugId: 2 }));
 
-const x = getUnresolvedBugs(store.getState());
-
-// store.dispatch(buggAdded({ description: "bug 4" }));
-// store.dispatch(bugResolved({ id: 4 }));
-
-const y = getUnresolvedBugs(store.getState());
-
-console.log(x === y);
+console.warn(getBugsByUser(1)(store.getState()));
 
 function App() {
   return <div>code with mosh</div>;

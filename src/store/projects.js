@@ -4,20 +4,20 @@ const slice = createSlice({
   name: "project",
   initialState: [],
   reducers: {
-    addProject: (projects, actions) => {
+    projectAdded: (projects, actions) => {
       projects[projects.length] = {
         id: ++projects.length,
         name: actions.payload.name,
       };
     },
-    removeProject: (projects, action) => {
+    projectRemoved: (projects, action) => {
       const index = projects.findIndex((item) => item.id === action.payload.id);
       projects.splice(index, 1);
     },
   },
 });
 
-export const { addProject, removeProject } = slice.actions;
+export const { projectAdded, projectRemoved } = slice.actions;
 export default slice.reducer;
 
 // selector
