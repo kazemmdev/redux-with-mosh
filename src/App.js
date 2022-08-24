@@ -7,6 +7,9 @@ import {
   getUserBug,
   bugAssignToUser,
   loadBugs,
+  addBug,
+  assignBugToUser,
+  resolveBug,
 } from "./store/bugs";
 import { projectAdded } from "./store/projects";
 import { userAdded } from "./store/users";
@@ -19,6 +22,10 @@ store.subscribe(() => {
 });
 
 store.dispatch(loadBugs());
+
+setTimeout(() => {
+  store.dispatch(assignBugToUser(1, 4));
+}, 2000);
 
 function App() {
   return <div>code with mosh</div>;

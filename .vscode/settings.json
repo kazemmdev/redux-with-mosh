@@ -1,0 +1,5 @@
+{
+  "editor.wordWrapColumn": 100,
+  "html.format.wrapLineLength": 100,
+  "yaml.format.printWidth": 100
+}
