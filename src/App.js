@@ -1,4 +1,4 @@
-import configureStore from "./store";
+import configureStore from "./store/configureStore";
 import {
   bugAdded,
   getUnresolvedBugs,
@@ -17,15 +17,15 @@ import * as actions from "./store/api";
 
 const store = configureStore();
 
-store.subscribe(() => {
-  console.log("Store Changed!", store.getState());
-});
+// store.subscribe(() => {
+//   console.log("Store Changed!", store.getState());
+// });
 
-store.dispatch(loadBugs());
+// store.dispatch(loadBugs());
 
-setTimeout(() => {
-  store.dispatch(assignBugToUser(1, 4));
-}, 2000);
+// setTimeout(() => {
+//   store.dispatch(assignBugToUser(1, 4));
+// }, 2000);
 
 function App() {
   return <div>code with mosh</div>;
